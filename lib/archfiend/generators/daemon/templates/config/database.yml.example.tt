@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  database: <%%= ENV.fetch('DATABASE_NAME', '<%= daemon_name %>_development') %>
+
+  username: <%%= ENV.fetch('DATABASE_USERNAME', 'username') %>
+  password: <%%= ENV.fetch('DATABASE_PASSWORD', 'password') %>
+
+  host: <%%= ENV.fetch('DATABASE_HOST', 'localhost') %>
+  port: <%%= ENV.fetch('DATABASE_PORT', 5432) %>
+
+  pool: 12
+  reconnect: true
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database:  <%= daemon_name %>_test
+
+staging:
+  <<: *default
+
+production:
+  <<: *default

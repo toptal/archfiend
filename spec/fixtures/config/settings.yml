@@ -1,0 +1,3 @@
+app_name: FooBar
+logger:
+  level: :info

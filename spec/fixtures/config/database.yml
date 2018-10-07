@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+
+test:
+  <<: *default
+  database:  foobar_test
+
+development:
+  <<: *default
+  database:  foobar_development
+
+production:
+  <<: *default
+  database:  foobar_production
+
+staging:
+  <<: *default
+  database:  foobar_staging

@@ -1,0 +1,4 @@
+# File required by spec_helper and by console. Loads the basic environment of the Producer
+require File.expand_path('application', __dir__)
+
+<%= camelized_daemon_name %>.app.setup

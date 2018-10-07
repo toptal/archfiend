@@ -1,0 +1,23 @@
+# <%= camelized_daemon_name %>
+
+## Running
+
+### In the foreground
+  Start in the foreground (ex. development)
+  ```bash
+    bin/start
+  ```
+
+### Daemonized
+  Start daemonized
+  ```bash
+    bin/start -d
+  ```
+
+  Kill daemonized:
+  ```bash
+    kill `cat [daemon_name].pid`
+  ```
+
+### Console
+  `bin/console`

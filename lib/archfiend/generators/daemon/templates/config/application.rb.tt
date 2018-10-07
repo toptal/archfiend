@@ -1,0 +1,27 @@
+require File.expand_path('boot', __dir__)
+require 'archfiend'
+
+# Your daemon namespace
+module <%= camelized_daemon_name %>
+  extend Archfiend::Utilities
+
+  # Main daemon application class
+  class Application < Archfiend::Application
+    # @return [Module] A module containing Archfiend::Utilities
+    def utils
+      ::<%= camelized_daemon_name %>
+    end
+  end
+
+  # @return [Pathname] An absolute path to the main directory of the daemon
+  def self.root
+    @root ||= Pathname.new(File.expand_path('..', __dir__))
+  end
+end
+
+Bundler.require(*<%= camelized_daemon_name %>.groups)
+
+silence_warnings do
+  Encoding.default_external = Encoding::UTF_8
+  Encoding.default_internal = Encoding::UTF_8
+end

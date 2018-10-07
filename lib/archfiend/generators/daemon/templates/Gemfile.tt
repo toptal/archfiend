@@ -1,0 +1,35 @@
+# frozen_string_literal: true
+source 'https://rubygems.org'
+
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
+
+gem 'activesupport', require: 'active_support/time'
+gem 'activerecord', require: 'active_record'
+gem 'activerecord-migrations'
+gem 'archfiend', github: 'toptal/archfiend'
+gem 'clockwork', require: false
+gem 'concurrent-ruby', require: 'concurrent'
+gem 'config'
+gem 'connection_pool'
+gem 'daemons'
+gem 'pg', '~> 0.21'
+gem 'rbtrace', require: false
+gem 'redis'
+
+group :development, :test do
+  gem 'factory_bot', require: false
+  gem 'pry'
+  gem 'pry-stack_explorer'
+  gem 'pry-byebug'
+  gem 'pry-doc', require: false
+  gem 'rspec', require: false
+  gem 'rubocop', require: false
+  gem 'rubocop-rspec', require: false
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'timecop', require: false
+  gem 'webmock', require: false
+end
+
+group :test do
+  gem 'database_cleaner'
+end

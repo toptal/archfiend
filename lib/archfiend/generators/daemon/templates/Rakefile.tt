@@ -1,0 +1,13 @@
+require 'active_record
+require 'active_record/migrations/tasks'
+ActiveRecord::Migrations.root = '.'
+require File.expand_path(File.join('..', 'config', 'application.rb'), __FILE__)
+
+<%= camelized_daemon_name %>.app.setup
+
+DATABASE_ENV = <%= camelized_daemon_name %>.app.env
+
+task :environment do
+end
+
+Dir["#{<%= camelized_daemon_name %>.root}/lib/tasks/*.rake"].each { |rake_file| load rake_file }

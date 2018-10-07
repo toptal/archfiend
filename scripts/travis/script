@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+# This script handles the Travis build execution in the 'script' phase.
+# It runs RuboCop and RSpec.
+
+require 'pathname'
+
+project_root = Pathname.new File.expand_path('../../', __dir__)
+
+Dir.chdir(project_root)
+
+rubocop_execution = system('BUNDLE_GEMFILE=Gemfile bundle exec rubocop')
+rspec_execution   = system('BUNDLE_GEMFILE=Gemfile bundle exec rspec')
+
+exit_code = (rubocop_execution && rspec_execution)
+
+exit exit_code

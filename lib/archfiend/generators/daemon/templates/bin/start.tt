@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ "$1" == "-d" ]; then
+  ruby ./config/daemon.rb
+else
+  ruby -r ./config/application.rb -e "<%= camelized_daemon_name %>.app.run"
+fi

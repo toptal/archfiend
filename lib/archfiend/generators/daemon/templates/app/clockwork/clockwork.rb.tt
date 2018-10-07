@@ -1,0 +1,14 @@
+# Uncomment the following code to have the Clockwork integration running in the daemon as a separate thread.
+# https://github.com/Rykian/clockwork
+
+# require 'clockwork'
+#
+# module Clockwork
+#   configure do |config|
+#     config[:logger] = <%= camelized_daemon_name %>.app.logger
+#   end
+#
+#   every(1.hour, 'label for logger') { Feed.send_later(:refresh) }
+#   every(10.seconds, 'label for logger') { run_something }
+#   every(1.day, 'label for logger', at: '01:30') { run_daily_processing }
+# end

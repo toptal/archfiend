@@ -2,9 +2,6 @@ require:
   - rubocop-rspec
 
 AllCops:
-  Include:
-    - '**/Gemfile'
-    - '**/Rakefile'
   Exclude:
     - 'db/**/*'
     - 'log/**/*'

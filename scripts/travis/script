@@ -4,10 +4,40 @@
 # It runs RuboCop and RSpec.
 
 require 'pathname'
+require 'fileutils'
 
-rubocop_execution = system('BUNDLE_GEMFILE=Gemfile bundle exec rubocop')
-rspec_execution   = system('BUNDLE_GEMFILE=Gemfile bundle exec rspec')
+archfiend_root = Pathname.new File.expand_path(File.join('..', '..'), __dir__)
 
-exit_code = (rubocop_execution && rspec_execution)
+def system!(*args)
+  system(*args) || abort("\n== Command #{args} failed ==")
+end
 
-exit exit_code
+system!('BUNDLE_GEMFILE=Gemfile bundle exec rubocop')
+system!('BUNDLE_GEMFILE=Gemfile bundle exec rspec')
+
+system!('mkdir testing')
+
+FileUtils.chdir(archfiend_root.join('testing')) do
+  system!('bundle exec archfiend new foo_bar')
+end
+
+database_yml = '
+test:
+  adapter: postgresql
+  database: foo_bar_test
+'
+
+File.open(archfiend_root.join('testing', 'foo_bar', 'config', 'database.yml'), 'w') do |f|
+  f.puts(database_yml)
+end
+
+FileUtils.chdir(File.join('testing', 'foo_bar')) do
+  system!('BUNDLE_GEMFILE=Gemfile bundle exec rake db:create')
+  system!('BUNDLE_GEMFILE=Gemfile bundle exec rake db:migrate')
+  system!('BUNDLE_GEMFILE=Gemfile bundle exec rspec')
+  system!('BUNDLE_GEMFILE=Gemfile bundle exec rubocop')
+
+  system!('BUNDLE_GEMFILE=Gemfile bin/start -d')
+  sleep(1)
+  system!('ps -o pid= -p `cat foo_bar.pid`')
+end

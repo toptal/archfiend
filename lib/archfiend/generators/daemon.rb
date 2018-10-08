@@ -121,7 +121,7 @@ module Archfiend
       end
 
       def rubocop
-        template '.rubocop.yml', daemon_path.join('.rubocop')
+        template '.rubocop.yml', daemon_path.join('.rubocop.yml')
       end
 
       def tmp

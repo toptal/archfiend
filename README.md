@@ -3,6 +3,8 @@
 Archfiend (/ˈɑrtʃˈfind/) - a basic daemon generator. It features boilerplate for ActiveRecord/RSpec/FactoryBot/RuboCop,
 handles daemonizing, logging and more. It provides a way to structure backend applications in an organized manner.
 
+[![Build Status](https://travis-ci.com/toptal/archfiend.svg?branch=master)](https://travis-ci.com/toptal/archfiend)
+
 ## Generator
 
 Archfiend provides the `archfiend` executable.

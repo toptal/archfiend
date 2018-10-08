@@ -5,10 +5,6 @@
 
 require 'pathname'
 
-project_root = Pathname.new File.expand_path('../../', __dir__)
-
-Dir.chdir(project_root)
-
 rubocop_execution = system('BUNDLE_GEMFILE=Gemfile bundle exec rubocop')
 rspec_execution   = system('BUNDLE_GEMFILE=Gemfile bundle exec rspec')
 

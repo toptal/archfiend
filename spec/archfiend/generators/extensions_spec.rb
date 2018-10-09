@@ -209,7 +209,7 @@ RSpec.describe Archfiend::Generators::Extensions do
         let(:dummy_instance) { dummy_klass.new }
 
         before do
-          stub_const('DummyExtension::Generators::Extensions', dummy_klass)
+          stub_const('DummyExtension::Generators::DaemonExtensions', dummy_klass)
         end
 
         it 'initializes classes and returns instances' do
@@ -238,7 +238,7 @@ RSpec.describe Archfiend::Generators::Extensions do
         allow(Kernel).to receive(:gem).with('dummy_extension')
         allow(Kernel).to receive(:require).with('dummy_extension')
         stub_const('DummyExtension', Class.new)
-        stub_const('DummyExtension::Generators::Extensions', dummy_klass)
+        stub_const('DummyExtension::Generators::DaemonExtensions', dummy_klass)
         allow(dummy_klass).to receive(:new).with(action_context, generator_options).and_return(dummy_instance)
       end
 

@@ -1,13 +1,12 @@
 module Archfiend
   module Generators
     class Extensions
-      GENERATOR_EXTENSION_MODULE_NAME = 'Generators::Extensions'.freeze
       PHASES = %i[init exec].freeze
       CALLBACK_TYPES = %i[before after].freeze
 
-      # @param generator_options [Archfiend::Generators::Options]
-      # @param action_context [Thor::Group]
-      # @param generator_name [String]
+      # @param generator_options [Archfiend::Generators::Options] Options, source of potential extensions
+      # @param action_context [Thor::Group] Contex of the extended action/group of actions
+      # @param generator_name [String] Underscore form name of the generator, ex. daemon
       def initialize(generator_options, action_context, generator_name)
         @generator_options = generator_options
         @action_context = action_context
@@ -60,13 +59,16 @@ module Archfiend
 
       def generator_extensions
         @generator_extensions ||= @extensions.map do |extension_module|
-          next unless extension_module.const_defined?(GENERATOR_EXTENSION_MODULE_NAME)
-
-          extension_klass = extension_module.const_get(GENERATOR_EXTENSION_MODULE_NAME)
+          next unless extension_module.const_defined?(generator_extensions_class_name)
+          extension_klass = extension_module.const_get(generator_extensions_class_name)
           next if extension_klass.respond_to?(:target_generator_name) && extension_klass.target_generator_name != @generator_name
 
           extension_klass.new(@action_context, @generator_options)
         end.compact
+      end
+
+      def generator_extensions_class_name
+        "Generators::#{@generator_name.camelize}Extensions" # example: Generators::DaemonExtensions
       end
 
       def expose_extensions # rubocop:disable Metrics/AbcSize

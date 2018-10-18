@@ -1,4 +1,10 @@
 require 'thor'
+require 'pathname'
+require 'archfiend/version'
+require 'archfiend/generators/daemon'
+require 'archfiend/generators/options'
+require 'archfiend/generators/extensions'
+require 'archfiend/generators/utils'
 
 module Archfiend
   class CLI < Thor

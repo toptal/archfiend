@@ -4,6 +4,7 @@ Archfiend (/ˈɑrtʃˈfind/) - a basic daemon generator. It features boilerplate
 handles daemonizing, configuration, logging and more. It provides a way to structure backend applications in an organized manner.
 
 [![Build Status](https://travis-ci.com/toptal/archfiend.svg?branch=master)](https://travis-ci.com/toptal/archfiend)
+[![Gem Version](https://badge.fury.io/rb/archfiend.svg)](https://badge.fury.io/rb/archfiend)
 
 ## Contents
 * [Getting started](#getting-started)

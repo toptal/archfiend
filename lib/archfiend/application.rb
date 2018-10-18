@@ -1,6 +1,6 @@
 module Archfiend
   class Application
-    extend Forwardable
+    extend ::Forwardable
 
     def_delegators :utils, :logger, :env, :name
 

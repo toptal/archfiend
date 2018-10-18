@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-require 'archfiend'
+require 'archfiend/cli'
 
 Archfiend::CLI.start(ARGV)

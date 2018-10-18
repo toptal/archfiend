@@ -4,7 +4,7 @@ require 'optparse'
 module Archfiend
   module Generators
     class Options
-      extend Forwardable
+      extend ::Forwardable
       SETTINGS_FILE = '.archfiend'.freeze
 
       def_delegators :@options, :extensions

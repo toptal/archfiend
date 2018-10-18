@@ -1,6 +1,6 @@
 module Archfiend
   class SubprocessLoop
-    extend Forwardable
+    extend ::Forwardable
     include SharedLoop::Runnable
 
     EXCEPTION_DELAY = 1 # Seconds to sleep for after rescuing recoverable exception

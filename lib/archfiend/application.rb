@@ -80,6 +80,7 @@ module Archfiend
     def setup_logger
       logger_level = Settings.logger&.level
       fail "Please set logger.level setting (#{POSSIBLE_LOGGER_LEVELS.inspect})" unless POSSIBLE_LOGGER_LEVELS.include?(logger_level)
+
       utils.logger.level = logger_level
       utils.logger.progname = name
     end

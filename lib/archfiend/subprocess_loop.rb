@@ -33,6 +33,7 @@ module Archfiend
 
       def kill_all
         return if !@subprocess_pids || @subprocess_pids.empty?
+
         @subprocess_pids.each do |spid|
           begin
             Process.kill('TERM', spid)

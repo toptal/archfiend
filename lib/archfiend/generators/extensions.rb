@@ -60,6 +60,7 @@ module Archfiend
       def generator_extensions
         @generator_extensions ||= @extensions.map do |extension_module|
           next unless extension_module.const_defined?(generator_extensions_class_name)
+
           extension_klass = extension_module.const_get(generator_extensions_class_name)
           next if extension_klass.respond_to?(:target_generator_name) && extension_klass.target_generator_name != @generator_name
 

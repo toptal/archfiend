@@ -98,6 +98,7 @@ RSpec.describe Archfiend::SubprocessLoop do
             @counter ||= 0
             @counter += 1
             fail Exception, 'Iterate called two times' if @counter > 1
+
             fail 'Regular runtime error'
           end
         end

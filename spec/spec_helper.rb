@@ -1,6 +1,8 @@
 require 'time'
 require 'bundler/setup'
 require 'archfiend'
+require 'archfiend/cli'
+
 require_relative 'support/change_with_timeout_matcher'
 
 ENV['APP_ENV'] = 'test'

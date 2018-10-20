@@ -321,3 +321,10 @@ Style/Send:
 
 Style/UnneededPercentQ:
   Enabled: true
+
+Style/RegexpLiteral:
+  Enabled: false
+
+RSpec/FilePath:
+  Enabled: false
+

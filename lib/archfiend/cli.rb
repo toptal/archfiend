@@ -6,6 +6,8 @@ require 'archfiend/generators/daemon'
 require 'archfiend/generators/options'
 require 'archfiend/generators/extensions'
 require 'archfiend/generators/utils'
+require 'archfiend/core_ext/string/camelize'
+require 'archfiend/core_ext/string/underscore'
 
 module Archfiend
   class CLI < Thor

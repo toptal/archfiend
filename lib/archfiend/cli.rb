@@ -1,5 +1,6 @@
 require 'thor'
 require 'pathname'
+require 'forwardable'
 require 'archfiend/version'
 require 'archfiend/generators/daemon'
 require 'archfiend/generators/options'

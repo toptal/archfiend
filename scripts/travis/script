@@ -6,6 +6,12 @@
 require 'pathname'
 require 'fileutils'
 
+require_relative 'checks/footprint'
+
+MAX_RSS = 10_000
+MAX_TIME = 100
+MAX_CLI_TIME = 350
+
 archfiend_root = Pathname.new File.expand_path(File.join('..', '..'), __dir__)
 
 def system!(*args)
@@ -15,10 +21,19 @@ end
 system!('BUNDLE_GEMFILE=Gemfile bundle exec rubocop')
 system!('BUNDLE_GEMFILE=Gemfile bundle exec rspec')
 
-system!('mkdir testing')
+footprint_checker = Checks::Footprint.new
+footprint_checker.check('RunTime', './lib/archfiend', MAX_RSS, MAX_TIME)
+footprint_checker.check('CLI', './lib/archfiend/cli', MAX_RSS, MAX_CLI_TIME)
 
+system!('mkdir testing')
 FileUtils.chdir(archfiend_root.join('testing')) do
   system!('bundle exec archfiend new foo_bar')
+end
+
+FileUtils.chdir(archfiend_root.join('testing', 'foo_bar')) do
+  system!(%(sed -i s/.*''archfiend''.*// Gemfile)) # Remove the existing archfiend entry
+  File.open('Gemfile', 'a') { |f| f.puts "gem 'archfiend', path: '../..'" } # Use the local gem
+  system!('bundle install')
 end
 
 database_yml = '

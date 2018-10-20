@@ -129,7 +129,13 @@ module Archfiend
       end
 
       def bundle_install
-        Bundler.with_clean_env do
+        if defined? Bundler
+          Bundler.with_clean_env do
+            inside daemon_name do
+              run 'bundle install'
+            end
+          end
+        else
           inside daemon_name do
             run 'bundle install'
           end

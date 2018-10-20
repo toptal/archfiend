@@ -21,6 +21,12 @@ FileUtils.chdir(archfiend_root.join('testing')) do
   system!('bundle exec archfiend new foo_bar')
 end
 
+FileUtils.chdir(archfiend_root.join('testing', 'foo_bar')) do
+  system!(%(sed -i s/.*''archfiend''.*// Gemfile)) # Remove the existing archfiend entry
+  File.open('Gemfile', 'a') { |f| f.puts "gem 'archfiend', path: '../..'" } # Use the local gem
+  system!('bundle install')
+end
+
 database_yml = '
 test:
   adapter: postgresql

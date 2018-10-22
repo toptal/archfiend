@@ -2,6 +2,7 @@ require 'time'
 require 'bundler/setup'
 require 'archfiend'
 require 'archfiend/cli'
+require 'tmpdir'
 
 require_relative 'support/change_with_timeout_matcher'
 

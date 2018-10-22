@@ -1,3 +1,5 @@
+require 'oj'
+
 module Archfiend
   class Logging
     # A JSON log formatter class, returns each entry as a JSON line

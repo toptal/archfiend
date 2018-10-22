@@ -40,7 +40,7 @@ RSpec.describe Archfiend::Application do
     it 'calls #setup_cleanup after setup and starting of ThreadLoop and SubprocessLoop' do
       expect(app).to receive(:setup_cleanup) { fail 'SetupCleanup' }
 
-      expect(app).to receive(:setup)
+      expect(app).to receive(:setup).and_call_original
       expect(Archfiend::ThreadLoop).to receive(:start_all)
       expect(Archfiend::SubprocessLoop).to receive(:start_all)
 
@@ -50,7 +50,7 @@ RSpec.describe Archfiend::Application do
     it 'loops after #setup, starting of ThreadLoop, SubprocessLoop and #setup_cleanup' do
       expect(app).to receive(:loop) { fail 'Loop' }
 
-      expect(app).to receive(:setup)
+      expect(app).to receive(:setup).and_call_original
       expect(Archfiend::ThreadLoop).to receive(:start_all)
       expect(Archfiend::SubprocessLoop).to receive(:start_all)
       expect(app).to receive(:setup_cleanup)

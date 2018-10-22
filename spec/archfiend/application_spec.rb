@@ -1,5 +1,5 @@
 require 'active_record'
-require 'active_support/all'
+require 'active_support/time'
 require 'config'
 
 RSpec.describe Archfiend::Application do

@@ -3,6 +3,9 @@ app_name: <%= camelized_daemon_name %>
 logger:
   # :debug, :info, :error, :fatal, :unknown
   level: :info
+  formatter:
+    file: 'JSONFormatter'
+    stdout: 'DefaultFormatter'
 
 debug:
   rbtrace: false

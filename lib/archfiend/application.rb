@@ -7,9 +7,8 @@ module Archfiend
     # The main application entry point, it starts up all the subthreads, all the subprocesses,
     # registers the exit handler and then it blocks the execution.
     def run
-      logger.info 'Starting up'
-
       setup
+      logger.info 'Starting up'
 
       ThreadLoop.start_all(self)
       SubprocessLoop.start_all(self)

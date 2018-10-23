@@ -1,3 +1,5 @@
+require 'archfiend/logging/json_formatter'
+
 RSpec.describe Archfiend::Logging::JSONFormatter do
   before do
     Thread.current[:tid] = 'TESTTID'

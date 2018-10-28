@@ -1,18 +1,19 @@
 require File.expand_path('application', __dir__)
 
+base_dir = File.join(File.expand_path(__dir__), '..')
 daemon_opts = {
-  app_name: '<%= daemon_name %>',
-  log_dir: File.join(File.expand_path(__dir__), 'log'),
-  logfilename: "#{<%= camelized_daemon_name %>.app.env}.log"
+  app_name: '<%= camelized_daemon_name %>',
+  app_env: <%= camelized_daemon_name %>.app.env,
+  log_file: File.join(base_dir, 'log', "#{<%= camelized_daemon_name %>.app.env}.log"),
+  pid_file: File.join(base_dir, '<%= daemon_name %>.pid')
 }
 
-# Daemons.daemonize closes all file descriptors and prepares the app for the fork.
+# Close all file descriptors and prepare the app for the fork.
 # Make sure new code doesn't rely on connections / logs etc opened before this call
-Daemons.daemonize(daemon_opts)
+Archfiend::Daemon.daemonize(**daemon_opts)
 
 # Sets up Settings and many more
 <%= camelized_daemon_name %>.app.setup
-Process.setproctitle "#{Settings.app_name} (#{<%= camelized_daemon_name %>.app.env})"
 
 # Runs the actual application
 <%= camelized_daemon_name %>.app.run

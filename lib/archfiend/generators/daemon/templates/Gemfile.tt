@@ -9,7 +9,6 @@ gem 'activerecord-migrations'
 gem 'archfiend', github: 'toptal/archfiend'
 gem 'clockwork', require: false
 gem 'config'
-gem 'daemons'
 gem 'pg', '~> 0.21'
 gem 'rbtrace', require: false
 

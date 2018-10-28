@@ -9,6 +9,7 @@ require 'archfiend/logging/multi_logger'
 require 'archfiend/shared_loop/runnable'
 require 'archfiend/thread_loop'
 require 'archfiend/subprocess_loop'
+require 'archfiend/daemon'
 
 module Archfiend
 end

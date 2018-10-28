@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file, in reverse 
 ## [master]
 [master]: https://github.com/toptal/archfiend/compare/0.1.0...HEAD
 
+* daemons gem removed in favor of Process.daemon
 * add formatter setting for all loggers
 * fix the usage of Forwardable
 * split requires for runtime and cli phases

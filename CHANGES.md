@@ -3,7 +3,10 @@
 All notable changes to this project will be documented in this file, in reverse chronological order.
 
 ## [master]
-[master]: https://github.com/toptal/archfiend/compare/0.1.0...HEAD
+[master]: https://github.com/toptal/archfiend/compare/0.1.1...HEAD
+
+## 0.1.1 (2019-01-14)
+[0.1.1]: https://github.com/toptal/archfiend/compare/0.1.0...0.1.1
 
 * daemons gem removed in favor of Process.daemon
 * add formatter setting for all loggers

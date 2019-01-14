@@ -34,7 +34,7 @@ module Checks
     end
 
     def run_checker(require_string)
-      `RUBYLIB=./lib analyze_requires -f json -n 100 archfiend #{require_string}`
+      `RUBYLIB=./lib analyze_requires -r -f json -n 100 archfiend #{require_string}`
     end
 
     def footprint_json(require_string)

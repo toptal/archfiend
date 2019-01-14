@@ -11,6 +11,7 @@ handles daemonizing, configuration, logging and more. It provides a way to struc
 * [Primitives](#primitives)
 * [Featured gems](#featured-gems)
 * [Changelog](#changelog)
+* [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
 * [Code of Conduct](#code-of-conduct)

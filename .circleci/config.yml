@@ -1,0 +1,42 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.5.1-node
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          RAILS_ENV: test
+          PGHOST: 127.0.0.1
+          PGUSER: circleci-user
+      - image: circleci/postgres:9.6
+        environment:
+          POSTGRES_USER: circleci-user
+          POSTGRES_DB: rails_archfiend
+          POSTGRES_PASSWORD:
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run:
+          name: install dependencies
+          command: (bundle check || bundle install) && gem install gem_footprint_analyzer
+
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      - run:
+          name: run tests
+          command: scripts/circleci/script

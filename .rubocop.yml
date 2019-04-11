@@ -7,6 +7,7 @@ AllCops:
     - 'log/**/*'
     - 'script/**/*'
     - 'tmp/**/*'
+    - 'vendor/**/*'
   DisplayCopNames: true
   TargetRubyVersion: 2.4
 
@@ -327,4 +328,3 @@ Style/RegexpLiteral:
 
 RSpec/FilePath:
   Enabled: false
-

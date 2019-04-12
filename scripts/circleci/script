@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-# This script handles the Travis build execution in the 'script' phase.
+# This script handles the CircleCI build execution in the 'script' phase.
 # It runs RuboCop and RSpec.
 
 require 'pathname'

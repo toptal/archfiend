@@ -7,6 +7,7 @@ AllCops:
     - 'log/**/*'
     - 'script/**/*'
     - 'tmp/**/*'
+    - 'vendor/**/*'
   DisplayCopNames: true
   TargetRubyVersion: 2.4
 

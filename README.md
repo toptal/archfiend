@@ -3,7 +3,7 @@
 Archfiend (/ˈɑrtʃˈfind/) - a basic daemon generator. It features boilerplate for common development tools (ActiveRecord, RSpec, FactoryBot, RuboCop),
 handles daemonizing, configuration, logging and more. It provides a way to structure backend applications in an organized manner.
 
-[![Build Status](https://travis-ci.com/toptal/archfiend.svg?branch=master)](https://travis-ci.com/toptal/archfiend)
+[![CircleCI](https://circleci.com/gh/toptal/archfiend/tree/master.svg?style=svg&circle-token=19722f09aa6a0fef0039d3286016100158b14669)](https://circleci.com/gh/toptal/archfiend/tree/master)
 [![Gem Version](https://badge.fury.io/rb/archfiend.svg)](https://badge.fury.io/rb/archfiend)
 
 ## Contents

@@ -108,7 +108,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord (~> 5)
   archfiend!
-  bundler (~> 1.15)
+  bundler (~> 2.0)
   config (~> 1.7)
   pg (~> 0.21)
   pry (~> 0.11)

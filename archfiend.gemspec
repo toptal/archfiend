@@ -28,7 +28,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry', '~> 0.11'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'rubocop', '~> 0.59'
-  spec.add_development_dependency 'rubocop-rspec', '~> 1.30'
+  spec.add_development_dependency 'rubocop', '~> 0.72'
+  spec.add_development_dependency 'rubocop-rails', '~> 2.2'
+  spec.add_development_dependency 'rubocop-rspec', '~> 1.33'
   spec.add_dependency 'thor', '~> 0.20' # CLI
 end

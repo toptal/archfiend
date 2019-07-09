@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Changes:
 
-None yet.
+* generated daemons will use Rubocop version of at least 0.72.0
 
 ## [0.1.1] (2019-01-14)
 [0.1.1]: https://github.com/toptal/archfiend/compare/0.1.0...0.1.1

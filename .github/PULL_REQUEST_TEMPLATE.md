@@ -10,7 +10,7 @@ Before submitting the PR make sure the following are checked:
 * [ ] Feature branch is up-to-date with `master` (if not - rebase it).
 * [ ] Squashed related commits together.
 * [ ] Added tests.
-* [ ] Added an entry to the [Changelog](../blob/master/CHANGELOG.md) if the new code introduces user-observable changes. See [changelog entry format](../blob/master/CONTRIBUTING.md#changelog-entry-format).
+* [ ] Added an entry to the [Changelog](../blob/master/CHANGELOG.md) if the new code introduces user-observable changes.
 * [ ] The PR relates to *only* one subject with a clear title
   and description in grammatically correct, complete sentences.
 * [ ] Run `bundle exec rspec` & `bundle exec rubocop`.

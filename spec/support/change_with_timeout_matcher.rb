@@ -13,7 +13,7 @@ end
 
 RSpec::Matchers.define :change_with_timeout do
   match do |first_block|
-    unless defined?(@from_value) && defined?(@to_value)
+    if !defined?(@from_value) || !defined?(@to_value) # rubocop:disable Style/IfUnlessModifier
       fail 'both from(value) and to(value) have to be chained for change_with_format'
     end
 

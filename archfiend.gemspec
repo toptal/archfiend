@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'activerecord', '~> 5' # For specs
   spec.add_development_dependency 'bundler', '~> 2.0'
-  spec.add_development_dependency 'config', '~> 1.7'
+  spec.add_development_dependency 'config', '~> 2.0'
   spec.add_dependency 'oj', '~> 3.6'
   spec.add_development_dependency 'pg', '~> 1.1'
   spec.add_development_dependency 'pry', '~> 0.11'

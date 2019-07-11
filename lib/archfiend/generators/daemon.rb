@@ -76,7 +76,7 @@ module Archfiend
       end
 
       def readme
-        template 'README.md', daemon_path.join('Readme.md')
+        template 'README.md', daemon_path.join('README.md')
       end
 
       def rakefile

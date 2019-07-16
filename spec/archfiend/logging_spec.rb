@@ -1,5 +1,5 @@
 RSpec.describe Archfiend::Logging do
-  let(:settings) { instance_double('Settings', logger: logger_settings) }
+  let(:settings) { object_double('Settings', logger: logger_settings) }
   let(:logger_settings) { {} }
 
   before { stub_const('Settings', settings) }

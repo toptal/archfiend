@@ -137,6 +137,9 @@ Rails/LexicallyScopedActionFilter:
 Rails/Presence:
   Enabled: false
 
+Rails/RakeEnvironment:
+  Enabled: false
+
 Rails/ReadWriteAttribute:
   Enabled: false
 

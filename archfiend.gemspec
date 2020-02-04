@@ -31,5 +31,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', '~> 0.72'
   spec.add_development_dependency 'rubocop-rails', '~> 2.2'
   spec.add_development_dependency 'rubocop-rspec', '~> 1.33'
+  spec.add_development_dependency 'simplecov', '~> 0.18'
   spec.add_dependency 'thor', '~> 0.20' # CLI
 end

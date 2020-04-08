@@ -11,18 +11,18 @@ RSpec.describe Archfiend::Logging::DefaultFormatter do
 
     let(:severity) { 'INFO' }
     let(:datetime) { Time.parse('2018-03-16 12:00:00 UTC') }
-    let(:progname) { 'Test' }
+    let(:progname) { 'Progname' }
 
     context 'when msg is a hash' do
       let(:msg) { {message: 'Test', backtrace: []} }
 
-      it { is_expected.to eq("2018-03-16T12:00:00.000Z 666 TID-TESTTID INFO: Test\n") }
+      it { is_expected.to eq("2018-03-16T12:00:00.000Z 666 TID-TESTTID INFO -- Progname: Test\n") }
     end
 
     context 'when msg is a string' do
       let(:msg) { 'Test' }
 
-      it { is_expected.to eq("2018-03-16T12:00:00.000Z 666 TID-TESTTID INFO: Test\n") }
+      it { is_expected.to eq("2018-03-16T12:00:00.000Z 666 TID-TESTTID INFO -- Progname: Test\n") }
     end
   end
 end

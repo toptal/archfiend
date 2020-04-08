@@ -13,10 +13,10 @@ module Archfiend
       private
 
       # @return [Object] The return value is forwarded from the first logger that responds to the method_name
-      def method_missing(method_name, *args)
+      def method_missing(method_name, *args, &block)
         return super unless responding_loggers(method_name).any?
 
-        responding_loggers(method_name).map { |l| l.public_send(method_name, *args) }.first
+        responding_loggers(method_name).map { |l| l.public_send(method_name, *args, &block) }.first
       end
 
       def respond_to_missing?(symbol, include_private = false)
